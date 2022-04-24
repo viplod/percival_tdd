@@ -20,7 +20,6 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements_by_tag_name('tr')
         self.assertIn(row_text, [row.text for row in rows])
 
-
     def test_can_start_a_list_and_retrieve_it_later(self):
         '''Тест: можно начать список и получить его позже.'''
 
@@ -40,14 +39,14 @@ class NewVisitorTest(unittest.TestCase):
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
-
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('Сделать мушку из павлиньих перьев')
         inputbox.send_keys(Keys.ENTER)
         time.sleep(1)
 
         self.check_for_row_in_list_table('1: Купить павлиньи перья')
-        self.check_for_row_in_list_table('2: Сделать мушку из павлиньих перьев')
+        self.check_for_row_in_list_table(
+            '2: Сделать мушку из павлиньих перьев')
         self.fail('Закончить тест!')
 
 
